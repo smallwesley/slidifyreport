@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exponential Distribution Simulation (EDS Tool)</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Exponential Distribution Simulation (EDS Tool)">
+  <meta name="author" content="Wesley Small (smallwesley)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Exponential Distribution Simulation (EDS Tool)</h1>
+    <h2>A presentation of the EDS Tool as part of the Coursera Data Products final project.</h2>
+    <p>Wesley Small (smallwesley)<br/>Coursera Data Science Student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Motivation Behind the EDS Tool</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The EDS Tool investigates the exponential distribution with comparison to Central Limit Theorem (CLT). </p>
+
+<p>With the Central Limit Theorem, the rule states that the distribution of average of IID (Independant &amp; Identically Distributed) variables, (when properly normalized), becomes that of a standard normal distribution.  This is more evident as the sample size increases.</p>
+
+<p>Also for a sampling distribution to be normal it should statify attributes of a standard normal:</p>
+
+<ul>
+<li>Where 68% distribution lies within 1 standard deviation from it&#39;s distribution mean.</li>
+<li>Secondly, 97% lies within 2 standard deviations awat from from distribution mean.</li>
+<li>Lastly, 99% lies within 3 standard deviations from the distribution mean.</li>
+</ul>
+
+<p>The EDS Tool provides a quick way to run a variety of simulations and test this theory in real-time.  The source material for this tool was based on lectures, notes and homework from Project #1 within Statistic Inference course offered on Coursera.org for the John Hopkin&#39;s Data Science Specialization.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>EDS TOOL Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="./assets/img/edstool.jpg" alt="EDSTOOL"></p>
+
+<p>The EDS Tool Application can be accessed at this location: 
+<a href="https://smallwesley.shinyapps.io/shinyapp/">https://smallwesley.shinyapps.io/shinyapp/</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Formulas</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Within the tool, here are a few of the formulas/functions used within the tool.</p>
+
+<pre><code class="r"># EXPONENTIAL DISTRIBUTION
+getExpDist &lt;- function(n, lambda) rexp(n,lambda)
+
+# CALCULATION OF THE THEORECTICAL MEAN
+getExpDistMean &lt;- function(lambda) 1/lambda
+
+# CALCULATION OF THE THEORECTICAL VARIANCE
+getExpDistStdDev &lt;- function(lambda) 1/lambda
+
+# SIMULATION TO OBTAIN SAMPLES (AVERAGES OF AVERAGES)
+getSimulationExpDistMeansDataFrame &lt;- function(n, lambda, nosim) {
+  output = NULL
+  for (i in 1 : nosim) output = c(output, mean(getExpDist(n=n,lambda=lambda)))
+  data.frame(x_axis = output)
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Demo of the normal distribution plot provided in the EDS Tool</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># Verbose GGPLOT2 code not show; ECHO = FALSE, EVAL = TRUE
+exampleExpDistPlot1000
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Motivation Behind the EDS Tool'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='EDS TOOL Application'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Formulas'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Demo of the normal distribution plot provided in the EDS Tool'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
