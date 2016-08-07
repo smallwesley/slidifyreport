@@ -1,6 +1,6 @@
 ---
-title       : Exponential Distribution Simulation (EDS Tool)
-subtitle    : A presentation of the EDS Tool as part of the Coursera Data Products final project.
+title       : The EDS Tool
+subtitle    : A presentation of the Exponential Distribution Simulation Tool as part of the Coursera Data Products final project.
 author      : Wesley Small (smallwesley)
 job         : Coursera Data Science Student
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -13,7 +13,7 @@ knit        : slidify::knit2slides
 
 ## Motivation Behind the EDS Tool
 
-The EDS Tool investigates the exponential distribution with comparison to Central Limit Theorem (CLT). 
+The EDS Tool investigates the *exponential distribution* with comparison to Central Limit Theorem (CLT). 
 
 With the Central Limit Theorem, the rule states that the distribution of average of IID (Independant & Identically Distributed) variables, (when properly normalized), becomes that of a standard normal distribution.  This is more evident as the sample size increases.
 
@@ -23,7 +23,7 @@ Also for a sampling distribution to be normal it should statify attributes of a 
 * Secondly, 97% lies within 2 standard deviations awat from from distribution mean.
 * Lastly, 99% lies within 3 standard deviations from the distribution mean.
 
-The EDS Tool provides a quick way to run a variety of simulations and test this theory in real-time.  The source material for this tool was based on lectures, notes and homework from Project #1 within Statistic Inference course offered on Coursera.org for the John Hopkin's Data Science Specialization.
+The EDS Tool provides a quick way to run a variety of simulations on exponential distributions in real-time.  The source material for this tool was based on lectures, notes and homework from Project #1 within Statistic Inference course offered on Coursera.org for the John Hopkin's Data Science Specialization.
 
 --- .class #id 
 
